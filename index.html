@@ -5,17 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Milano e AC Milan</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #f7f7f7; color: #222; }
-    h1 { color: #ad1f2d; }
-    h2 { color: #1f3d5a; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 32px;
+      background-image: url('https://images.unsplash.com/photo-1543471954-09c062a4dfdc?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(18, 23, 39, 0.62);
+      mix-blend-mode: multiply;
+      z-index: 0;
+    }
+    .container {
+      width: min(1100px, 95vw);
+    }
+    h1 { color: #fde8eb; text-align: center; animation: pulse 4s ease-in-out infinite; }
+    h2 { color: #fce6eb; }
     p { font-size: 1.1rem; line-height: 1.6; }
-    .card { background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 18px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+      transform: translateY(0);
+      animation: floatCard 6s ease-in-out infinite;
+    }
+    .card:hover { transform: scale(1.02); transition: transform 0.2s ease-in-out; }
     ul { margin: 0; padding-left: 1.2rem; }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+      50% { text-shadow: 0 0 24px rgba(255, 255, 255, 1); }
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
   </style>
 </head>
 <body>
-  <h1>Benvenuto a Milano</h1>
-  <div class="card">
+  <div class="container">
+    <h1>Benvenuto a Milano</h1>
+    <div class="card">
     <h2>La città</h2>
     <p>Milano è il cuore economico e culturale dell'Italia. Nota per il Duomo, la Galleria Vittorio Emanuele II, il quartiere dei Navigli, e la moda internazionale, Milano mescola storia e innovazione.</p>
     <ul>
@@ -58,6 +104,7 @@
       <li>Gustare un risotto alla milanese</li>
       <li>Vivere l'atmosfera allo stadio in una partita rossonera</li>
     </ul>
+  </div>
   </div>
 </body>
 </html>
